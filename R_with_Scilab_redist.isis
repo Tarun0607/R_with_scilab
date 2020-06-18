@@ -1,0 +1,51 @@
+;##############################################################################################################
+; Inno Setup Install script for Toolbox_skeleton
+; http://www.jrsoftware.org/isinfo.php
+; This file is released under the 3-clause BSD license. See COPYING-BSD.
+;##############################################################################################################
+; modify this path where is toolbox_skeleton directory
+#define BinariesSourcePath "C:\Programs files\scilab-6.0.2\contrib\oddeven_skeleton"
+;
+#define OddEven_skeleton_version "0.1"
+#define CurrentYear "2020"
+#define Toolbox_skeletonDirFilename "R_with_Scilab_Toolbox"
+;##############################################################################################################
+[Setup]
+; Debut Données de base à renseigner suivant version
+SourceDir={#BinariesSourcePath}
+AppName=R with Scilab 
+AppVerName=R with Scilab version 0.1
+DefaultDirName={pf}\{#Toolbox_skeletonDirFilename}
+InfoAfterfile=readme.txt
+LicenseFile=license.txt
+WindowVisible=true
+AppPublisher=Your Company
+BackColorDirection=lefttoright
+AppCopyright=Copyright © {#CurrentYear}
+Compression=lzma/max
+InternalCompressLevel=normal
+SolidCompression=true
+VersionInfoVersion={#OddEven_skeleton_version}
+VersionInfoCompany=Your Company
+;##############################################################################################################
+[Files]
+; Add here files that you want to add
+Source: loader.sce; DestDir: {app}
+Source: etc\R_with_Scilab.quit; DestDir: {app}\etc
+Source: etc\R_with_Scilab.start; DestDir: {app}\etc
+Source: macros\buildmacros.sce; DestDir: {app}\macros
+Source: macros\lib; DestDir: {app}\macros
+;Source: macros\names; DestDir: {app}\macros
+Source: macros\*.sci; DestDir: {app}\macros
+Source: macros\*.bin; DestDir: {app}\macros
+Source: sci_gateway\loader_gateway.sce; DestDir: {app}\sci_gateway
+Source: sci_gateway\c\loader.sce; DestDir: {app}\sci_gateway\c
+Source: sci_gateway\c\skeleton_c.dll; DestDir: {app}\sci_gateway\c
+Source: src\c\libckruskal_wallis.dll; DestDir: {app}\src\c
+Source: src\c\loader.sce; DestDir: {app}\src\c
+Source: tests\*.*; DestDir: {app}\tests; Flags: recursesubdirs
+;Source: includes\*.h; DestDir: {app}\includes; Flags: recursesubdirs
+;Source: locales\*.*; DestDir: {app}\locales; Flags: recursesubdirs
+Source: demos\*.*; DestDir: {app}\locales; Flags: recursesubdirs
+;
+;##############################################################################################################
